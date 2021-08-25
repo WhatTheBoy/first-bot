@@ -1,0 +1,15 @@
+import telebot
+
+import config
+
+bot = telebot.TeleBot(config.TOKEN)
+print("message")
+
+
+@bot.message_handler(commands=['start', 'help'])
+def main(message):
+    print(message)
+    bot.send_message(message.chat.id, 'Привет , Димчик , погода на сегодня:')
+
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
